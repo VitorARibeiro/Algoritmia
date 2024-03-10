@@ -3,7 +3,7 @@
 
 
 typedef struct _node{
-    void *next;
+    struct _node *next;
     int data;
 }NODE;
 
@@ -65,7 +65,6 @@ int listRemove(int _data){
     return 1;
 
 }
-
 
 NODE* listInsert(int _index , int _data){
     NODE* new = NULL;
