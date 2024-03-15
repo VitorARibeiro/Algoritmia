@@ -1,0 +1,36 @@
+Biblioteca em C de listas ligadas
+by Vitor Ribeiro
+
+-----Gerar Lista-----
+NODE* NewList(); 
+	Funcao Utilizada para criar uma nova lista, gera uma NODE* NULL
+
+-----Adicionar Conteudos-----
+int AddFirst(NODE** Head,int Number); 
+	Adiciona numero no inicio da lista 
+	Complexidade O(1)
+
+int AddLast(NODE** Head, int Number); 
+	Adiciona numero no fim da lista
+	Complexidade O(n)
+
+int Insert(NODE** Head , int Index, int Number);
+	Adiciona numero num certo index da lista
+	Complexidade O(n) , onde n representa o index;
+
+-----Remover conteudos-----
+Remover no inicio
+Remover no fim 
+Remover num certo Index
+Apagar a lista
+
+-----Logica-----
+Dizer o tamanho da lista
+Somar tudo
+MultiplicarTudo
+Inverter lista ?? 
+
+-----Display-----
+void PrintList(NODE* Head);
+	Utilizada para dar print numa lista a começar no inicio
+	Complexidade O(n) 

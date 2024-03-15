@@ -40,8 +40,6 @@ int main(int argc, char** argv ){
 	} while (swaped == true);
 
 
-	
-
 	//Mostrar resultado
 	
 	for (int i = 0; i < argc-1; ++i)
