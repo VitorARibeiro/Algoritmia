@@ -16,6 +16,8 @@ int main(){
 	Insert(&Lista,0,2); // adiciona 2 no index 0 (inicio)
 	Insert(&Lista,3,4); // adiciona 4 no index 3
 	
+	RemoveFirst(&Lista);
+	
 
 	PrintList(Lista);
 	return 0;

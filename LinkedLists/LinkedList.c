@@ -123,22 +123,34 @@ int Insert(NODE** Head , int Index, int Number){
 	return 0;
 }
 
-int RemoveFirst(NODE** Head){
+int RemoveFirst(NODE** Head) {
+    if (*Head == NULL) {
+        printf("Nao e possivel remover itens de uma lista vazia \n");
+        return 1;
+    }
+
+    NODE* temp = *Head;
+    *Head = (*Head)->Next;
+    free(temp);
+
+    return 0;
+}
+
+int RemoveLast(NODE** Head){
 
 	if(*Head == NULL){
 		printf("Nao e possivel remover itens de uma lista vazia \n");
 		return 1;
 	}
 
-	
-
-	return 0;
 }
+
 void PrintList(NODE* Head){
 
 	while(Head != NULL){
 
-		printf("%i - ", Head->Data);
+		printf("%i ", Head->Data);
 		Head = Head->Next;
 	}
+	printf("\n");
 }

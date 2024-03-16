@@ -20,8 +20,10 @@ int Insert(NODE** Head , int Index, int Number);
 
 -----Remover conteudos-----
 Remover no inicio
+
 Remover no fim 
 Remover num certo Index
+Remover certo numero
 Apagar a lista
 
 -----Logica-----
