@@ -27,15 +27,31 @@ int RemoveLast(NODE** Head);
 	Remove um item do fim da lista
 	Complexidade de O(n);
 
-	
-Remover num certo Index
-Remover certo numero
-Apagar a lista
+
+int RemoveIndex(NODE** Head,int Index);
+	Remove um item de uma lista num determinado index 
+	Complexidade O(n);
+
+int RemoveNumber(NODE** Head, int Number);
+	Remove a primeira aparicao de um numero numa lista
+	Complexidade O(n);
+
+int EmptyList(NODE** Head);
+	Apaga todos os itens da lista
+	Complexidade O(n);
+
 
 -----Logica-----
-Dizer o tamanho da lista
-Somar tudo
-MultiplicarTudo
+int ListSize(NODE* Head); 
+	Retorna o tamanho da lista 
+	Complexidade O(n)
+float SumList(NODE* Head);
+	Retorna a soma dos valores da lista 
+	Complexidade O(n)
+float MulList(NODE* Head);
+	Retorna o valor da multiplicacao dos valores da lista 
+	Complexidade O(n)
+	
 Inverter lista ?? 
 
 -----Display-----
