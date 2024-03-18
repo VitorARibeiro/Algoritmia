@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LinkedList.h"
-
+//-----Gerar lista-----
 NODE* NewList(){
 	//Iniciamos uma apontador para o inicio de uma lista NULL
 	NODE* Head = NULL;
 	return Head;
 }
 
+//-----Adicionar Conteudos-----
 int AddFirst(NODE** Head,int Number){
 	//Nas funcoes que altermos a lista temos de passar duplo apontador porque senao apenas fazemos alteracoes locais
 		NODE* New;
@@ -123,6 +124,7 @@ int Insert(NODE** Head , int Index, int Number){
 	return 0;
 }
 
+//-----Remover Conteudos-----
 int RemoveFirst(NODE** Head) {
     if (*Head == NULL) {
         printf("Nao e possivel remover itens de uma lista vazia \n");
@@ -143,8 +145,33 @@ int RemoveLast(NODE** Head){
 		return 1;
 	}
 
+	NODE* Current = (*Head);
+	NODE* Previous = (*Head);
+
+	while(Current->Next != NULL){
+
+		Previous = Current;
+		Current = Current -> Next;
+
+	}
+
+	Previous -> Next = NULL;
+	free(Current);
 }
 
+int RemoveIndex(NODE** Head,int Index){
+
+	if((*Head) == NULL){
+		printf("Impossivel apagar item de uma lista vazia");
+		return 1;
+	}
+
+	NODE* Current = (*Head);
+	return 0;
+}
+
+
+//-----Mostrar Conteudos-----
 void PrintList(NODE* Head){
 
 	while(Head != NULL){

@@ -19,9 +19,15 @@ int Insert(NODE** Head , int Index, int Number);
 	Complexidade O(n) , onde n representa o index;
 
 -----Remover conteudos-----
-Remover no inicio
+int RemoveFirst(NODE** Head);
+	Remove um item do inicio da lista
+	Complexidade de O(1);
 
-Remover no fim 
+int RemoveLast(NODE** Head);
+	Remove um item do fim da lista
+	Complexidade de O(n);
+
+	
 Remover num certo Index
 Remover certo numero
 Apagar a lista

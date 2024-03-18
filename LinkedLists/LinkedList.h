@@ -14,7 +14,7 @@ int AddFirst(NODE** Head,int Number); // Utilizada para adicionar um numero no i
 int AddLast(NODE** Head, int Number); // Utilizada para adicionar um numero no fim da lista complexidade O(n)
 int Insert(NODE** Head , int Index, int Number); // Utilizada para inserir numero na lista Complexidade O(INDEX)
 int RemoveFirst(NODE** Head); // Utilizada para remover o primeiro item da lista Complexidade O(1)
-
+int RemoveLast(NODE** Head); // Utilizada para remover o ultimo item da lista Complexidade O(n);
 void PrintList(NODE* Head); //Imprime valores da lista complexidade O(n)
 
 

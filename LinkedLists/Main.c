@@ -17,6 +17,9 @@ int main(){
 	Insert(&Lista,3,4); // adiciona 4 no index 3
 	
 	RemoveFirst(&Lista);
+	RemoveLast(&Lista);
+
+
 	
 
 	PrintList(Lista);
