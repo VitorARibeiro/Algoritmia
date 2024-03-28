@@ -1,53 +1,48 @@
-// o(n²)
-
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdbool.h>
+void printarray(int* array,int length){
+
+for(int i = 0; i< length; i++){
+    printf("%i ",array[i]);
+}
+printf("\n");
+}
 
 
+int main(){
 
-int main(int argc, char** argv ){
+int array[10] = {1,-2,6,3,8,-5,9,10,-3,7};
+int length = sizeof(array)/sizeof(array[0]);
 
-	// Obter Input
+//selecionar o menor item e trocar
 
-	int* array = (int*)malloc(sizeof(int)* (argc -1));
+for (int i = 0; i < length -1; i++)
+{
+    int menor = array[i];
+    int posicao = 0;
+    for (int j = i+1; j < length; j++)
+    {
+        //procurar menor
+        if(menor > array[j]){
+            menor = array[j];
+            posicao = j;
+        }
+        
+    }
 
-	for (int i = 1; i < argc; ++i)
-	{
-		array[i-1] = atoi(argv[i]);
-	}
+    if (menor < array[i]){
+        //swap menor com i
+        array[posicao] = array[i]; 
+        array[i] = menor;
+        printarray(array,length);
+    }
 
-	//Selection Sort
+    
+}
 
-	
 
-	for(int j = 0;j<argc-1;j++){
+printf("--Fim--\n");
+printarray(array,length);
 
-		int indexTracker,temp;
-		int min = array[j];
-
-		for (int i = j; i < argc -1; ++i)
-		{
-			if(array[i]<= min){
-				indexTracker = i;
-				min = array[i];
-			}
-	
-		}
-		//encontrou minimo, swap
-		temp = array[j];
-		array[j] = min;
-		array[indexTracker] = temp;
-		
-	}
-
-	//Mostrar resultado
-	
-	for (int i = 0; i < argc-1; ++i)
-	{
-		printf("%d ",array[i]);
-	}
-
-	printf("\n");
-
-	return 0;
+    return 0;
 }

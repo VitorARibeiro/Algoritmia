@@ -1,0 +1,23 @@
+Bubble sort     
+    o(n²) 
+    Estavel 
+
+Insertion sort  
+    o(n²)
+    Estavel
+
+Selection sort  
+    o(n²)
+    Nao Estavel
+
+Heap sort  
+    o(n log n)
+    Nao Estavel
+
+Quick sort
+    o(n log n) //caso medio devia ser omega
+    Nao Estavel
+
+Merge sort
+    o(n log n)
+    Estavel

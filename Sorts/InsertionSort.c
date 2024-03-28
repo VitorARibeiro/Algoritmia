@@ -12,21 +12,24 @@ printf("\n");
 int main(){
 
 int array[10] = {1,-2,6,3,8,-5,9,10,-3,7};
-bool sorted = false;
 int length = sizeof(array)/sizeof(array[0]);
 
-while(!sorted){
-    sorted = true;
-    for(int i = 0; i < length - 1; i++){
+for(int i = 1 ; i < length ; i++){
 
-        if(array[i] > array[i+1]){
-            sorted = false;
-            int temp = array[i];
-            array[i] = array[i+1];
-            array[i+1] = temp;
-            printarray(array,length);
-        }
-    }
+int j = i - 1 ; 
+int key = array[i];
+
+while(j >= 0 && array[j] > key){
+
+    
+    array[j+1] = array[j];
+    array[j] = key;
+    printarray(array,length);
+    key = array[j];
+    j--;
+}
+
+
 }
 
 printf("--Fim--\n");
