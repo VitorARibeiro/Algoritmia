@@ -1,0 +1,5 @@
+5;Produção;4000
+4;Marketing;6000
+3;TI;8000
+2;RH;3000
+1;Vendas;5000
