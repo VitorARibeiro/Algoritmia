@@ -60,3 +60,27 @@ int AddTail(NODE **Lista, int number) { // Vante
 
   return 0; // sem erros
 }
+
+int RemoveHead(NODE **Lista) {
+
+  if (*Lista == NULL) {
+    printf("Nao e possivel remover itens de uma lista vazia");
+    return 1; // erro de lista vazia
+  }
+  NODE *Current = *Lista;
+  NODE *Previous = (*Lista)->previous;
+
+  free(*Lista);
+
+  *Lista = Current->next;
+  (*Lista)->previous = Current->previous;
+
+  Previous->next = *Lista;
+
+  return 0; // sem erros
+}
+
+int removeTail(NODE **Lista) {
+
+  return 0; // sem erros
+}

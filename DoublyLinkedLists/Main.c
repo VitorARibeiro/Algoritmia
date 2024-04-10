@@ -12,5 +12,9 @@ int main() {
   AddTail(&Lista1, 1);
   AddTail(&Lista1, 1);
   PrintList(Lista1);
+  // RemoveHead(&Lista1);
+  // RemoveHead(&Lista1);
+
+  // PrintList(Lista1);
   return 0;
 }

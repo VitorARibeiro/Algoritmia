@@ -10,8 +10,9 @@ typedef struct _node {
 } NODE;
 
 void PrintList(NODE *Lista);
-
 int AddHead(NODE **Lista, int number);
-
 int AddTail(NODE **Lista, int number);
+int removeTail(NODE **Lista);
+int RemoveHead(NODE **Lista);
+
 #endif // DOUBLY_LINKED_LISTS_H
