@@ -33,7 +33,6 @@ TREENODE *CreateNodeInfo(int _data, TREENODE *_left,
     node->right = _right;
     node->left = _left;
   }
-
   return node;
 }
 
@@ -44,10 +43,10 @@ TREENODE *CreateBinTree(int *v, int i, int size) {
     return NULL;
   }
   return CreateNodeInfo(*(v + i), CreateBinTree(v, 2 * i + 1, size),
-                        CreateBinTree(v, 2 * i + 1, size));
+                        CreateBinTree(v, 2 * i + 2, size));
 }
 
-void PrintTree(TREENODE *node) {
+void PrintTreePreOrder(TREENODE *node) {
 
   if (node == NULL) {
     return;
@@ -62,7 +61,7 @@ int main() {
   int array[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
   TREENODE *tree = CreateBinTree(array, 0, 10);
-  PrintTree(tree);
+  PrintTreePreOrder(tree);
 
   return 0;
 }
