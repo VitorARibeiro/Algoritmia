@@ -106,7 +106,6 @@ void PrintTreeJogadorPreOrder(TREENODE *node, int space) {
   // Process left child
   PrintTreeJogadorPreOrder(node->left, space);
 }
-
 bool IsLeaf(TREENODE *Node) {
   return (Node->left == NULL && Node->right == NULL);
 }
@@ -122,10 +121,8 @@ int maxNumber(int a, int b) { return (a > b) ? a : b; }
 
 int BtreeDepth(TREENODE *btree) {
 
-  if (btree == NULL)
+  if (btree == NULL || IsLeaf(btree))
     return 0;
-  if (IsLeaf(btree))
-    return 1;
 
   return 1 + maxNumber(BtreeDepth(btree->left), BtreeDepth(btree->right));
 }
