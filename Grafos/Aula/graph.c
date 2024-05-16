@@ -145,3 +145,41 @@ STATUS DFSTraverseGraph_M(GRAPH_M G)
     printf("\nvertex %-3d: from vertex %d ", i, from[i]);
   return OK;
 }
+
+STATUS addVertexGraph_M(GRAPH_M *pG, int x) {
+
+  pG->pD[pG->nVertices] = x;
+  pG->nVertices++;
+
+  return OK;
+}
+
+STATUS addEdgeGraph_M(GRAPH_M *pG, EDGE e, BOOLEAN bool) {
+  int PosI = 0, PosJ = 0;
+  int j = 0;
+
+  for (int i = 0; i < pG->nVertices; i++) {
+    if (e.v == pG->pD[i]) {
+      PosI = i;
+    }
+    if (e.w == pG->pD[j]) {
+      PosJ = j;
+    }
+
+    if (PosJ && PosI) {
+      break;
+    }
+    j++;
+  }
+  // Nao encontrou os nos
+
+  if (!(PosJ && PosI)) {
+    return ERROR;
+  }
+
+  pG->adjMatrix[PosI][PosJ] = e.weight;
+  if (!bool)
+    pG->adjMatrix[PosJ][PosI] = e.weight;
+
+  return OK;
+} // the BOOLEAN argunment is to indicate whether
