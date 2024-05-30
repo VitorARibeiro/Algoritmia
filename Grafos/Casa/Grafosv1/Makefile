@@ -8,4 +8,4 @@ grafos : grafos.o main.o
 	$(CC) -o $@ $^
 
 clean: 
-	rm -f *.o grafos
+	del *.o grafos.exe grafos.h.gch
