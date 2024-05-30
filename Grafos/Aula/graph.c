@@ -117,6 +117,7 @@ STATUS DFSTraverseGraph_M(GRAPH_M G)
 // non-generic - suitable only for int data
 {
   // underflow
+  // checkar se o grafo esta vazio ou nao
   if (emptyGraph_M(G))
     return ERROR;
   // starting vertex
@@ -126,12 +127,14 @@ STATUS DFSTraverseGraph_M(GRAPH_M G)
   e.weight = 0;
   // order[] is to keep the order vertices are visited
   // from[] is to keep where from vertices are visited
-  int order[NMAX_VERTICES];
-  int from[NMAX_VERTICES];
-  for (int i = 0; i < NMAX_VERTICES; i++) {
+  int order[NMAX_VERTICE];
+  int from[NMAX_VERTICE];
+  // settar tudo com inf -1
+  for (int i = 0; i < NMAX_VERTICE; i++) {
     order[i] = -1;
     from[i] = -1;
   }
+
   int cnt = 0;
   printf("\nvertices");
   DFSGraph_M(G, e, order, from,
@@ -155,10 +158,9 @@ STATUS addVertexGraph_M(GRAPH_M *pG, int x) {
 }
 
 STATUS addEdgeGraph_M(GRAPH_M *pG, EDGE e, BOOLEAN bool) {
-  int PosI = 0, PosJ = 0;
-  int j = 0;
+  int PosI = -1, PosJ = -1;
 
-  for (int i = 0; i < pG->nVertices; i++) {
+  for (int i = 0, j = 0; i < pG->nVertices; i++, j++) {
     if (e.v == pG->pD[i]) {
       PosI = i;
     }
@@ -166,14 +168,14 @@ STATUS addEdgeGraph_M(GRAPH_M *pG, EDGE e, BOOLEAN bool) {
       PosJ = j;
     }
 
-    if (PosJ && PosI) {
+    if (PosJ != -1 && PosI != -1) {
+      printf("Encontrou %i- %i \n", PosI, PosJ);
       break;
     }
-    j++;
   }
   // Nao encontrou os nos
 
-  if (!(PosJ && PosI)) {
+  if (PosJ == -1 || PosI == -1) {
     return ERROR;
   }
 
@@ -183,3 +185,33 @@ STATUS addEdgeGraph_M(GRAPH_M *pG, EDGE e, BOOLEAN bool) {
 
   return OK;
 } // the BOOLEAN argunment is to indicate whether
+
+int removeVertexGraph_M(GRAPH_M *graf, int vertice) {
+  // para talremovemos o vertice e colocamos o ultimo no lugar do removido e
+  // depois diminuimos o tamanho do nvertices
+  int index = -1;
+  for (int i = 0; i < graf->nVertices; i++) {
+    if (graf->pD[i] == vertice) {
+      index = i;
+      graf->nVertices--;
+      graf->pD[i] = graf->pD[graf->nVertices];
+      graf->pD[graf->nVertices] = 0;
+      break;
+    }
+  }
+
+  if (index == -1) {
+    printf("Vertice nao existe");
+    return ERROR;
+  }
+
+  // temos de ajustar matriz de adjacencia com o pd novo
+  for (int i = 0; i < graf->nVertices; i++) {
+    graf->adjMatrix[index][i] = graf->adjMatrix[graf->nVertices][i];
+    graf->adjMatrix[i][index] = graf->adjMatrix[i][graf->nVertices];
+    graf->adjMatrix[i][graf->nVertices] = 0;
+    graf->adjMatrix[graf->nVertices][i] = 0;
+  }
+
+  return OK;
+}

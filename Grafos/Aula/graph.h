@@ -4,7 +4,7 @@
 //-------------------------------------------------------
 #ifndef _LOGICAL
 #define _LOGICAL
-#define NMAX_VERTICES 20
+#define NMAX_VERTICE 20
 typedef enum { ERROR = 0, OK = 1 } STATUS;
 typedef enum { FALSE = 0, TRUE = 1 } BOOLEAN;
 #endif // !_LOGICAL
@@ -48,7 +48,7 @@ STATUS addVertexGraph_M(GRAPH_M *, int);
 STATUS addEdgeGraph_M(GRAPH_M *, EDGE,
                       BOOLEAN); // the BOOLEAN argunment is to indicate whether
 // the graph is directed or not
-int removeVertexGraph_M(GRAPH_M *);
+int removeVertexGraph_M(GRAPH_M *, int);
 EDGE removeEdgeGraph_M(GRAPH_M *);
 // Query ------------------------------------------------
 BOOLEAN emptyGraph_M(GRAPH_M G);
